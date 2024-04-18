@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\greet\GreetingsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('welcome/{nama?}',function ($nama="buchori") {
-    return view('selamat_datang')->with("nama",$nama);
-});
+Route::get('welcome/{nama}/{npm}',[GreetingsController::class,"greet"]);
